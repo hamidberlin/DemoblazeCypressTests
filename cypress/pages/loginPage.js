@@ -7,11 +7,13 @@ class LoginPage {
   }
 
   // Gibt den Benutzernamen in das entsprechende Eingabefeld ein
+  // .clear() stellt sicher, dass das Feld vorher geleert wird
   enterUsername(username) {
     cy.get('#loginusername').clear().type(username)
   }
 
   // Gibt das Passwort in das entsprechende Eingabefeld ein
+  // Auch hier wird vorher das Feld geleert
   enterPassword(password) {
     cy.get('#loginpassword').clear().type(password)
   }
@@ -22,10 +24,10 @@ class LoginPage {
   }
 
   // Überprüft, ob der Benutzer erfolgreich eingeloggt ist
+  // Dazu wird geschaut, ob oben rechts der Text mit dem Benutzernamen erscheint
   assertUserLoggedIn(username) {
     cy.get('#nameofuser').should('contain.text', username)
   }
 }
 
-// Exportiert eine Instanz der LoginPage-Klasse
 export default new LoginPage();

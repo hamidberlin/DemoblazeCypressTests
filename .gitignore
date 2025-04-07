@@ -6,7 +6,7 @@ cypress/screenshots/
 cypress/videos/
 
 # Temporäre Testdaten oder Fixtures (optional ignorieren, wenn dynamisch)
-cypress/fixtures/
+!cypress/fixtures/users.json
 
 # Build-Output (z. B. für Web-Apps, falls vorhanden)
 dist/

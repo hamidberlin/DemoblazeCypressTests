@@ -11,6 +11,8 @@
   "license": "ISC",
   "description": "Cypress tests for Demoblaze",
   "devDependencies": {
-    "cypress": "^14.2.1" 
+    "cypress": "^14.2.1",
+    "webpack": "^5.65.0",
+    "@cypress/webpack-preprocessor": "^5.2.0"
   }
 }

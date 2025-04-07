@@ -31,7 +31,6 @@ class LoginPage {
 }
 
 // Exportiert eine Instanz der LoginPage-Klasse
-// So kann sie in den Testdateien direkt verwendet werden
-const loginPage = new LoginPage();
-export default loginPage;
+export default new LoginPage();
+
 

@@ -1,5 +1,6 @@
 // Importiert das Page Object für die Login-Seite
-import loginPage from '../../support/pageObjects/loginPage'
+import LoginPage from '../pages/loginPage';
+
 
 // Beginnt die Test-Suite mit dem Titel "Demoblaze Login"
 describe('Demoblaze Login', () => {
@@ -17,24 +18,24 @@ describe('Demoblaze Login', () => {
   // Der eigentliche Testfall: Einloggen mit gültigem Benutzer
   it('logs in with valid user', function () {
     // Öffnet das Login-Fenster über das Page Object
-    loginPage.openLoginModal()
+    LoginPage.openLoginModal()
 
     // Kurze Wartezeit, damit das Modal vollständig geladen wird (kann durch besseres Warten ersetzt werden)
     cy.wait(500)
 
     // Gibt den Benutzernamen aus der Fixture-Datei ein
-    loginPage.enterUsername(this.users.validUser.username)
+    LoginPage.enterUsername(this.users.validUser.username)
 
     // Gibt das Passwort ein
-    loginPage.enterPassword(this.users.validUser.password)
+    LoginPage.enterPassword(this.users.validUser.password)
 
     // Klickt auf den Login-Button
-    loginPage.clickLoginButton()
+    LoginPage.clickLoginButton()
 
     // Wartezeit, um sicherzustellen, dass der Login abgeschlossen ist
     cy.wait(1000)
 
     // Überprüft, ob der Benutzername nach dem Login korrekt angezeigt wird
-    loginPage.assertUserLoggedIn(this.users.validUser.username)
+    LoginPage.assertUserLoggedIn(this.users.validUser.username)
   })
 })

@@ -2,24 +2,29 @@ name: Cypress Tests
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
   workflow_dispatch:
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Der GitHub Action Runner läuft auf einem Ubuntu-Image
 
     steps:
+      # 1. Checkout des Repositories
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18'  # Node.js-Version 18
 
+      # 3. Cache von Node-Modulen (optional)
       - name: Cache Node modules
         uses: actions/cache@v3
         with:
@@ -28,10 +33,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
+      # 4. Installation der Abhängigkeiten
       - name: Install dependencies
-        run: npm install
+        run: npm ci  # Installation der Abhängigkeiten basierend auf der package-lock.json
 
+      # 5. Anwendung starten (optional, falls notwendig)
+      - name: Start application
+        run: npm start &
+        env:
+          CI: true
+
+      # 6. Cypress-Tests ausführen
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
         with:
-          start: npm start
+          start: npm start  # Der Befehl, der für das Starten der Anwendung benötigt wird
+          wait-on: 'http://localhost:8080'  # Wartet, bis der Server gestartet ist
+
+

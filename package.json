@@ -1,18 +1,16 @@
 {
   "name": "demoblazecypresstests",
-  "version": "1.0.0",
-  "main": "index.js",
+  "author": "Hamid",
+  "license": "MIT",
   "scripts": {
-    "test": "cypress run",  
-    "open": "cypress open"
+    "start": "http-server -p 8080", 
+    "test": "cypress run",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:record": "cypress run --record --key"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "Cypress tests for Demoblaze",
-  "devDependencies": {
-    "cypress": "^14.2.1",
-    "webpack": "^5.65.0",
-    "@cypress/webpack-preprocessor": "^5.2.0"
+  "dependencies": {
+    "http-server": "^0.12.3",
+    "cypress": "^7.0.0"
   }
 }

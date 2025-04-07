@@ -4,13 +4,13 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress run",  
-    "open": "cypress open"
-  },   
+    "open": "cypress open"  
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "Cypress tests for Demoblaze",
   "devDependencies": {
-    "cypress": "^14.2.1"  
+    "cypress": "^14.2.1" 
   }
 }

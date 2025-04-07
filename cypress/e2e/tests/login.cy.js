@@ -1,25 +1,19 @@
-import loginPage from '../../pages/loginPage';
+// cypress/e2e/tests/login.cy.js
 
-describe('Login Test for Demoblaze', () => {
+import LoginPage from '../../pages/loginPage';
+
+describe('Login Tests for Demoblaze', () => {
   it('should login with valid credentials', () => {
-    // Besuche die Demoblaze-Website
-    loginPage.visit();
-
-    // Melde dich mit gültigen Anmeldedaten an
-    loginPage.login('validUsername', 'validPassword');
-
-    // Überprüfe, ob der Benutzer erfolgreich eingeloggt wurde
-    cy.get('#logout2').should('be.visible'); 
+    cy.visit('https://www.demoblaze.com');
+    LoginPage.openLoginModal(); // Login-Modal öffnen
+    LoginPage.submitLogin('your_username', 'your_password'); // Mit gültigen Daten anmelden
+    LoginPage.checkIfLoggedIn('your_username'); // Überprüfen, ob der Benutzer eingeloggt ist
   });
 
   it('should show error with invalid credentials', () => {
-    // Besuche die Demoblaze-Website
-    loginPage.visit();
-
-    // Melde dich mit ungültigen Anmeldedaten an
-    loginPage.login('invalidUsername', 'invalidPassword');
-
-    // Überprüfe, ob der Fehler angezeigt wird
-    cy.get('.sweet-alert').should('be.visible'); 
+    cy.visit('https://www.demoblaze.com');
+    LoginPage.openLoginModal(); // Login-Modal öffnen
+    LoginPage.submitLogin('wrong_username', 'wrong_password'); // Mit ungültigen Daten anmelden
+    LoginPage.usernameError(); // Überprüfen, ob die Fehlermeldung angezeigt wird
   });
 });

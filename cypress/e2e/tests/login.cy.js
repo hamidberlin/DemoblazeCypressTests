@@ -19,9 +19,6 @@ describe('Demoblaze Login', () => {
     // Öffnet das Login-Fenster über das Page Object
     LoginPage.openLoginModal()
 
-    // Kurze Wartezeit, damit das Modal vollständig geladen wird (kann durch besseres Warten ersetzt werden)
-    cy.wait(500)
-
     // Gibt den Benutzernamen aus der Fixture-Datei ein
     LoginPage.enterUsername(this.users.validUser.username)
 

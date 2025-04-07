@@ -20,21 +20,16 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Cache Node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
       - name: Install dependencies
         run: npm install
 
-      - name: Cache Cypress binary
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/Cypress
-          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-cypress-
-
-      - name: Install Cypress
-        run: npm install cypress@14.2.1
-
       - name: Run Cypress tests
         uses: cypress-io/github-action@v5
-        with:
-          start: npm start

@@ -1,5 +1,5 @@
 // Importiert das Page Object für die Login-Seite
-import LoginPage from '../../pages/LoginPage';
+import LoginPage from '../pages/LoginPage';
 
 // Beginnt die Test-Suite mit dem Titel "Demoblaze Login"
 describe('Demoblaze Login', () => {

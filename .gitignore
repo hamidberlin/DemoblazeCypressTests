@@ -2,8 +2,8 @@
 node_modules/
 
 # Cypress generiert Screenshots & Videos bei Tests – oft nicht nötig im Repo
-cypress/screenshots/
-cypress/videos/
+# cypress/screenshots/
+  cypress/videos/
 
 # Temporäre Testdaten oder Fixtures (optional ignorieren, wenn dynamisch)
 !cypress/fixtures/users.json

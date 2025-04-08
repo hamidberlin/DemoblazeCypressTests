@@ -1,5 +1,11 @@
 import LoginPage from '../../pages/LoginPage';
 
+describe('Login Test', () => {
+  it('should log something', () => {
+    cy.log('Login test loaded');
+  });
+});
+
 // Beginnt die Test-Suite mit dem Titel "Demoblaze Login"
 describe('Demoblaze Login', () => {
 

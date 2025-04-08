@@ -3,11 +3,11 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      
+
     },
-     // Screenshots bei Fehlern aufnehmen
+    // Screenshots bei Fehlern aufnehmen
     screenshotOnRunFailure: true,
-     // Ordner für Screenshots
+    // Ordner für Screenshots
     screenshotsFolder: "cypress/screenshots",
     // Optional: Videos von Tests aufnehmen
     video: true, 

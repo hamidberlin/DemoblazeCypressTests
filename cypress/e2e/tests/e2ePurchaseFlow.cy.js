@@ -19,18 +19,28 @@ describe('Demoblaze E2E Flow', () => {
   });
 
   it('Logs in and buys iPhone 6 32GB', () => {
+    // Homepage aufrufen
     homePageFlow.visit();
     homePageFlow.getNavbarTitle(); 
     homePageFlow.clickLoginButton();
 
+    // Login durchführen
     loginPageFlow.login(user.username, user.password);
     loginPageFlow.checkLoginSuccess();
 
+    // Produktkategorie auswählen
     homePageFlow.selectCategory('Phones');
-    homePageFlow.selectProduct('Iphone 6 32gb');
 
+    // Produkt auswählen (robuster mit Sichtbarkeitsprüfung)
+    cy.contains('Iphone 6 32gb')
+      .should('be.visible')
+      .should('exist')
+      .click();
+
+    // Produkt in den Warenkorb legen
     productPage.addToCart();
 
+    // Zum Warenkorb navigieren und Bestellung durchführen
     cartPage.goToCart();
     cartPage.placeOrder();
 
@@ -45,6 +55,7 @@ describe('Demoblaze E2E Flow', () => {
 
     cy.screenshot('before-order-submit');
 
+    // Bestellformular ausfüllen und abschicken
     cartPage.fillOrderForm(orderData);
     cartPage.submitPurchase();
   });

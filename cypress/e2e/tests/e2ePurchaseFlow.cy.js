@@ -1,7 +1,7 @@
 import HomePageFlow from '../../pages/HomePageFlow';
 import LoginPageFlow from '../../pages/LoginPageFlow';
 import ProductPage from '../../pages/ProductPage';
-import CartPage from '../../pages/cartPage';
+import CartPage from '../../pages/CartPage';
 
 const homePageFlow = new HomePageFlow();
 const loginPageFlow = new LoginPageFlow();

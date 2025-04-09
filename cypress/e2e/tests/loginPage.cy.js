@@ -1,4 +1,4 @@
-import LoginPage from '../../pages/loginPage';
+import LoginPage from '../../pages/LoginPageBase';
 
 describe('Login Test', () => {
   it('should log something', () => {
@@ -40,7 +40,7 @@ describe('Demoblaze Login', () => {
     cy.wait(1000);
 
       // Screenshot nach Test
-  cy.screenshot();
+    cy.screenshot();
 
     // Überprüft, ob der Benutzername nach dem Login korrekt angezeigt wird
     LoginPage.assertUserLoggedIn(this.users.validUser.username);

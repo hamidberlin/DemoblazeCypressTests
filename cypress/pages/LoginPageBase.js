@@ -1,5 +1,5 @@
 // Definiert eine Klasse für die Login-Seite im Page Object Model
-class LoginPage {
+class LoginPageBase {
   
   // Öffnet das Login-Modal, indem der "Log in"-Button in der Navigation angeklickt wird
   openLoginModal() {
@@ -30,4 +30,4 @@ class LoginPage {
   }
 }
 
-export default new LoginPage();
+export default new LoginPageBase();
